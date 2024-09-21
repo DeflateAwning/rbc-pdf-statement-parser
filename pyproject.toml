@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "rbc_pdf_statement_parser"
 
 # Reminder: version is also in __init__.py.
-version = "0.0.0"
+version = "0.1.0"
 description = "A Python-based parser for RBC Business Account statements"
 authors = [{ name = "DeflateAwning" }]
 license = "Unlicense"
@@ -24,7 +24,7 @@ issues = "https://github.com/DeflateAwning/rbc-pdf-statement-parser/issues"
 license = "https://github.com/DeflateAwning/rbc-pdf-statement-parser/blob/main/LICENSE"
 
 [project.scripts]
-rbc_pdf_statement_parser = "rbc_pdf_statement_parser:main"
+rbc_pdf_statement_parser = "rbc_pdf_statement_parser.cli:main"
 
 [tool.ruff.lint]
 select = ["ALL"]
