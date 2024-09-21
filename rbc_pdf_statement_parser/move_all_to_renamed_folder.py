@@ -1,4 +1,11 @@
-"""Move all PDF files to a new folder with a new name."""
+"""Move all PDF files to a new folder with a new name, based on the contents.
+
+The new name is based on the statement dates extracted from the first page of
+the PDF.
+
+This script is not exposed in the package's CLI or __main__.py entry points,
+currently.
+"""
 
 from __future__ import annotations
 
@@ -46,9 +53,7 @@ def copy_to_renamed_folder(input_dir: Path, output_folder: Path) -> None:
     count = 0
     for pdf_file in input_dir.glob("**/*.pdf"):
         start_date, end_date = get_statement_dates(pdf_file)
-        new_file_name = (
-            f"CalgaryToSpace RBC Statement - {start_date} to {end_date}.pdf"
-        )
+        new_file_name = f"RBC Statement - {start_date} to {end_date}.pdf"
         new_file_path = output_folder / new_file_name
 
         if new_file_path.exists():

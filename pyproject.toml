@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "rbc_pdf_statement_parser"
 
 # Reminder: version is also in __init__.py.
-version = "0.1.0"
+version = "0.1.1"
 description = "A Python-based parser for RBC Business Account statements"
 authors = [{ name = "DeflateAwning" }]
 license = "Unlicense"
