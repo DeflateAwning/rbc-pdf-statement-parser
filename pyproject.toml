@@ -17,6 +17,25 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+dependencies = [
+    # PyMuPDF for reading a PDF as a text file (fast)
+    "pymupdf",
+
+    # tabula-py for reading tables from PDFs (slow)
+    "tabula-py",
+    # tabula dependencies
+    "jpype1",
+    "pandas",
+
+    # polars for better data manipulation
+    "polars",
+    # polars dependencies
+    "pyarrow",
+
+    # orjson for writing JSON files (fast, supports more types)
+    "orjson"
+]
+
 [project.urls]
 homepage = "https://github.com/DeflateAwning/rbc-pdf-statement-parser"
 repository = "https://github.com/DeflateAwning/rbc-pdf-statement-parser"
@@ -25,6 +44,7 @@ license = "https://github.com/DeflateAwning/rbc-pdf-statement-parser/blob/main/L
 
 [project.scripts]
 rbc_pdf_statement_parser = "rbc_pdf_statement_parser.cli:main"
+
 
 [tool.ruff.lint]
 select = ["ALL"]
