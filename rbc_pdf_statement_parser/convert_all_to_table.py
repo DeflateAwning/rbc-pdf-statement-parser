@@ -289,12 +289,18 @@ def process_entire_directory(input_dir: Path, output_dir: Path) -> None:
     df_all_transactions.write_csv(
         all_transactions_file := output_dir / "00_all_transactions.csv"
     )
+    df_all_transactions.write_parquet(
+        _all_transactions_parquet := output_dir / "00_all_transactions.pq"
+    )
 
     # Save metadata to a CSV file.
     df_metadata = pl.DataFrame(metadata_list)
     df_metadata = df_metadata.sort("opening_date", maintain_order=True)
     df_metadata.write_csv(
         all_metadata_file := output_dir / "00_all_statement_metadata.csv"
+    )
+    df_metadata.write_parquet(
+        _all_metadata_parquet := output_dir / "00_all_statement_metadata.pq"
     )
 
     print(f"Saved all transactions to: {all_transactions_file}")
